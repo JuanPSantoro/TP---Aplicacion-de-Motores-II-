@@ -16,12 +16,13 @@ public class SpawnControlInspector : Editor
     public override void OnInspectorGUI()
     {
         enemyType = (GameObject)EditorGUILayout.ObjectField("Enemy", enemyType, typeof(GameObject), false);
+        bezierInfo.EnemiesAmount = Mathf.Max(1, EditorGUILayout.IntField("EnemiesAmount", bezierInfo.EnemiesAmount));
         if (enemyType == null)
         {
-            EditorGUILayout.HelpBox("You need a reference object for continue", MessageType.Warning);
+            EditorGUILayout.HelpBox("You need a reference object to generate", MessageType.Warning);
+            GUI.enabled = false;
         }
-        bezierInfo.EnemiesAmount = Mathf.Max(1, EditorGUILayout.IntField("EnemiesAmount", bezierInfo.EnemiesAmount));
-        
+
         if (GUILayout.Button("CheckSpawns"))
         {
             CheckSpawn();

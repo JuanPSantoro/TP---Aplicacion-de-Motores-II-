@@ -14,7 +14,11 @@ public class DungeonGeneratorWindow : EditorWindow
     ColliderType colliderSelector;
     Vector3 SpawnPosition;
     GameObject managerDungeon;
+    GameObject spawner;
     GameObject wall;
+    bool boolManager;
+    bool boolSpawner;
+    bool boolWall;
     bool colliderAdd;
     bool layerAdd;
     bool audioSourceAdd;
@@ -29,12 +33,19 @@ public class DungeonGeneratorWindow : EditorWindow
     private void OnGUI()
     {
         EditorGUILayout.LabelField("DungeonGenerator");
-        EditorGUILayout.LabelField("-------------");
-        EditorGUILayout.LabelField("ManagerCreate");
-        Manager();
-        EditorGUILayout.LabelField("-------------");
-        EditorGUILayout.LabelField("WallsCreate");
-        Wall();
+
+        if (boolManager = EditorGUILayout.Foldout(boolManager, "ManagerCreate"))
+        {
+            Manager();
+        }
+        if (boolSpawner = EditorGUILayout.Foldout(boolSpawner, "SpawnCreate"))
+        {
+            Spawner();
+        }
+        if (boolWall = EditorGUILayout.Foldout(boolWall, "WallCreate"))
+        {
+            Wall();
+        }
     }
     private void Manager()
     {
@@ -45,16 +56,26 @@ public class DungeonGeneratorWindow : EditorWindow
             layerType = EditorGUILayout.LayerField("Layer assign", layerType);
 
 
-        if (managerDungeon == null)
+        /*if (managerDungeon == null)
         {
             EditorGUILayout.HelpBox("Please, insert an entity you consider manager for continue", MessageType.Warning);
             GUI.enabled = false;
-        }
+        }*/
         SpawnPosition = EditorGUILayout.Vector3Field("SpawnPosition", SpawnPosition);
         if (GUILayout.Button("CreateManagerDungeon"))
         {
             managerDungeon = Instantiate(managerDungeon, SpawnPosition, Quaternion.identity);
             managerDungeon.layer = layerType;
+        }
+    }
+
+    private void Spawner()
+    {
+        spawner = (GameObject)EditorGUILayout.ObjectField("Spawner", spawner, typeof(GameObject), false);
+        if (GUILayout.Button("Create Spawner"))
+        {
+            spawner = Instantiate(spawner, SpawnPosition, Quaternion.identity);
+            spawner.layer = layerType;
         }
     }
     private void Wall()
