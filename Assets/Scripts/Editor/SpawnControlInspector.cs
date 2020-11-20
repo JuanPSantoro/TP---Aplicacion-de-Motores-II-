@@ -15,6 +15,10 @@ public class SpawnControlInspector : Editor
     }
     public override void OnInspectorGUI()
     {
+        if (bezierInfo.EnemiesAmount < 1)
+        {
+            bezierInfo.EnemiesAmount = 1;
+        }
         enemyType = (GameObject)EditorGUILayout.ObjectField("Enemy", enemyType, typeof(GameObject), false);
         bezierInfo.EnemiesAmount = Mathf.Max(1, EditorGUILayout.IntField("EnemiesAmount", bezierInfo.EnemiesAmount));
         if (enemyType == null)
@@ -31,6 +35,16 @@ public class SpawnControlInspector : Editor
 
     public void CheckSpawn()
     {
+        for (int i = bezierInfo.points.Count - 1; i > 0; i--)
+        {
+            if (i - 1 >= 0)
+            {
+                if (bezierInfo.points[i] == bezierInfo.points[i - 1])
+                {
+                    bezierInfo.points.RemoveAt(i);
+                }
+            }
+        }
         foreach (var point in bezierInfo.points)
         {
             GameObject instance = Instantiate(enemyType, (new Vector3(point.x, point.y, point.z)), Quaternion.identity);

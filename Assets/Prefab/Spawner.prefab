@@ -69,8 +69,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1248865475755906396}
-  - component: {fileID: 1248865475755906399}
-  - component: {fileID: 1248865475755906397}
+  - component: {fileID: 6623058291264572511}
+  - component: {fileID: 1493173743592977052}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Untagged
@@ -96,26 +96,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1248865475755906399
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1248865475755906370}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 429ce580e9cc0b144b3613573a288539, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pointA: {fileID: 1248865476605009569}
-  pointB: {fileID: 1248865475556942769}
-  tangentA: {fileID: 1248865475681489801}
-  tangentB: {fileID: 1248865475999220581}
-  points:
-  - {x: -13.4, y: 0, z: 11.179588}
-  EnemiesAmount: 1
---- !u!114 &1248865475755906397
+--- !u!114 &6623058291264572511
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -127,6 +108,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc415b5328a87304e820728dc918eb7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1493173743592977052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1248865475755906370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4e504e1a4ab1354c8b94bd99baf0051, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  current: {fileID: 1248865475755906370}
+  pointA: {fileID: 1248865476605009569}
+  pointB: {fileID: 1248865475556942769}
+  tangentA: {fileID: 1248865475681489801}
+  tangentB: {fileID: 1248865475999220581}
+  points:
+  - {x: -13.4, y: 0, z: 11.179588}
+  listPoints:
+  - {fileID: 1248865476605009569}
+  - {fileID: 1248865475556942769}
+  listTgt:
+  - {fileID: 1248865475681489801}
+  - {fileID: 1248865475999220581}
+  EnemiesAmount: 1
 --- !u!1 &1248865475999220586
 GameObject:
   m_ObjectHideFlags: 0

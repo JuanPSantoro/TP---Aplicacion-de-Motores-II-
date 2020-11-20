@@ -4,21 +4,14 @@ using UnityEngine;
 
 public class CustomBezier : MonoBehaviour
 {
+    public GameObject current;
     public Transform pointA;
     public Transform pointB;
     public Transform tangentA;
     public Transform tangentB;
-    public Vector3[] points;
+    public List<Vector3> points;
+    public List<Transform> listPoints;
+    public List<Transform> listTgt;
     public int EnemiesAmount;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
